@@ -5,7 +5,6 @@ import random
 
 app = Flask(__name__)
 
-# Definição das métricas
 request_total_counter = Counter(
     'http_requests_total',
     'Total de requisições HTTP recebidas',
@@ -25,7 +24,6 @@ request_duration_summary = Summary(
 )
 
 def sleep(ms):
-    """Função para simular atraso."""
     time.sleep(ms / 1000)
 
 @app.route('/')
@@ -33,15 +31,13 @@ def index():
     success = request.args.get('success', 'true').lower() == 'true'
     status_code = 200 if success else 500
     
-    # Incrementando o contador de requisições
     request_total_counter.labels(method='GET', status_code=str(status_code)).inc()
     
-    # Medindo o tempo de execução
     start_time = time.time()
-    sleep(100 * random.random())  # Simulando atraso aleatório
-    duration_time = (time.time() - start_time) * 1000  # Convertendo para ms
+    sleep(100 * random.random())  
+    duration_time = (time.time() - start_time) * 1000
     
-    # Observando os tempos de resposta
+    
     request_duration_histogram.observe(duration_time)
     request_duration_summary.labels(method='GET').observe(duration_time)
 
@@ -55,5 +51,4 @@ def metrics():
     return generate_latest(), 200, {'Content-Type': CONTENT_TYPE_LATEST}
 
 if __name__ == '__main__':
-    # app.run(port=3000)
     app.run(host='0.0.0.0', port=5000)
