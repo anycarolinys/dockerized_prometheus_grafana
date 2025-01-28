@@ -31,7 +31,7 @@ http://<localhost>:5000/?success=true
 ```
 Requisição com falha:  
 ```
-http://<localhost>:5000/?success=true
+http://<localhost>:5000/?success=false
 ```
 
 5. Para acesar o Prometheus
@@ -64,12 +64,12 @@ docker-compose down
 - A aplicação criada foi uma implementação das métricas vistas no Artigo 1 utilizando como base o código do Artigo 2
 
 **3. Desenvolvimento do Dockerfile/Docker Compose**
-- Para o Flask utilizei os exemplos da Demanda 1
+- Para o Flask utilizei os arquivos da Demanda 1 como base
 - Para o Prometheus utilizei como base o compose no Artigo 2, pois no Artigo 1 haviam configurações que eu não julgava serem necessárias a princípio
 - Para o Grafana utilizei como base o compose do Artigo 1
 
 **4. Conexão do Prometheus com o Grafana**
-- Como a interface do Grafana era intuitiva, bastou usar o Prometheus como fonte de dados adicionando o IP do localhost do WSL com a porta 9090 como URL.
+- Como a interface do Grafana era intuitiva, bastou usar o Prometheus como fonte de dados adicionando o IP do WSL com a porta 9090 como URL
 
 
 ## **Resultados**
@@ -78,11 +78,11 @@ docker-compose down
 
 **1. Métricas configuradas na aplicação Flask não eram exibidas no Prometheus**
 - Observei os logs do container do Prometheus e não eram indicados erros
-- Fui então testar a aplicação individualmente com ```python app.py```, não eram exibidos erros, a aplicação rodava sem problemas aparentes na porta 5000
-- Resolvi fazer um teste realizando uma requisição na rota '/' da aplicação e observando os logs de seu container, a partir disso foi descoberto um problema com a configuração do método ```labels()```  
+- Fui então testar a aplicação individualmente com ```python app.py``` e não eram exibidos
+- Resolvi fazer um teste realizando uma requisição na rota '/' da aplicação e observando os logs de seu container, a partir disso notei um problema com a configuração do método ```labels()```  
 - Na [documentação](https://prometheus.github.io/client_python/instrumenting/labels/) (não achei solução em fóruns) tentei compreender o que era necessário nas labels para cada tipo de métrica (Counter, Histogram, Summary)
--  A documentação do cliente do Prometheus para o Python sobre o que deveria ser incluído nas labels para cada métrica não era clara e os exemplos eram escassos
-- Utilizei IA para solucionar o problema de configuração das labels e as métricas passaram a ser exibidas no Prometheus
+    -  A documentação sobre o que deveria ser incluído nas labels para cada métrica não era clara e os exemplos eram escassos
+    - Utilizei IA para solucionar o problema de configuração das labels, e as métricas passaram a ser exibidas no Prometheus
 
 **2. Deploy de múltiplos serviços com Render**
 
