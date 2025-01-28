@@ -1,5 +1,5 @@
 # Demanda 5
-Desenvolvida em ambiente WSL com Ubuntu 22.04.4 LTS e foi executado localmente utilizando o IP da máquina obtido com o comando ```ip a```.  
+Desenvolvida em ambiente WSL com Ubuntu 22.04.4 LTS e foi executada localmente utilizando o IP da máquina obtido com o comando ```ip a```.  
 
 ## **Como executar o projeto**  
 
@@ -74,10 +74,6 @@ docker-compose down
 
 ## **Resultados**
 
-
-## **O que poderia ter sido melhorado/realizado com mais tempo**  
-
-
 ## **Principais dificuldades**  
 
 **1. Métricas configuradas na aplicação Flask não eram exibidas no Prometheus**
@@ -90,8 +86,7 @@ docker-compose down
 
 **2. Deploy de múltiplos serviços com Render**
 
-
-
+## **O que poderia ter sido melhorado/realizado com mais tempo**  
 
 ## **Principais aprendizados**  
 - Compreensão dos objetivos das ferramentas Prometheus e Grafana e como elas se comunicam entre si
