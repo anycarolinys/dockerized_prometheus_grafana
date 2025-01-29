@@ -95,7 +95,7 @@ scheme: https
 - Utilizei o render para fazer o deploy da Aplicação Flask e é possível acessar a aplicação por [este link](https://dockerized-prometheus-grafana.onrender.com), a plataforma usada (Render) vai manter a URL ativa por mais 750 horas a partir do envio deste projeto
 - Não foi possível obter URL de deploy para os serviços do Prometheus e Grafana, eles estão hospedados na plataforma Railway e foram oferecidas variáveis de ambiente como ```RAILWAY_PRIVATE_DOMAIN, RAILWAY_PROJECT_NAME RAILWAY_ENVIRONMENT_NAME,RAILWAY_SERVICE_NAME,RAILWAY_PROJECT_ID RAILWAY_ENVIRONMENT_ID,RAILWAY_SERVICE_ID``` tentei checar se elas formavam uma URL válida juntas mas não existe tal domínio  
     - Para fazer o deploy desses serviços criei dois repositórios separados para o [Prometheus](https://github.com/anycarolinys/prometheus_service) e [Grafana](https://github.com/anycarolinys/grafana_service)
-- Sendo assim, [segue o link](https://youtu.be/ilL09HIq-H0?si=4Wk4UgmkDx9xOtlB) de um vídeo de minha autoria demonstrando o funcionamento dos três serviços em conjunto, sendo a API hospedada no Render e o Prometheus/Grafana executados localmente
+- Sendo assim, **[segue o link](https://youtu.be/ilL09HIq-H0?si=4Wk4UgmkDx9xOtlB) de um vídeo de minha autoria demonstrando o funcionamento dos três serviços em conjunto, sendo a API hospedada no Render e o Prometheus/Grafana executados localmente**
 
 ## **O que poderia ter sido melhorado/realizado com mais tempo**  
 - Poderia ter sido realizado o deploy dos serviços Prometheus e Grafana
