@@ -8,3 +8,12 @@ scrape_configs:
     static_configs:
       - targets: ['app:5000']
       
+# global:
+#     scrape_interval: 15s
+
+# scrape_configs:
+#   - job_name: 'app'
+#     metrics_path: '/metrics'
+#     scheme: https
+#     static_configs:
+#       - targets: ['dockerized-prometheus-grafana.onrender.com']

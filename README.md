@@ -73,6 +73,13 @@ docker-compose down
 
 
 ## **Resultados**
+- Prometheus deve estar configurado para coletar métricas do container da
+aplicação  
+```
+scheme: https
+    static_configs:
+      - targets: ['dockerized-prometheus-grafana.onrender.com']
+```
 
 ## **Principais dificuldades**  
 
@@ -84,9 +91,13 @@ docker-compose down
     -  A documentação sobre o que deveria ser incluído nas labels para cada métrica não era clara e os exemplos eram escassos
     - Utilizei IA para solucionar o problema de configuração das labels, e as métricas passaram a ser exibidas no Prometheus
 
-**2. Deploy de múltiplos serviços com Render**
+**2. Deploy de múltiplos serviços com a plataforma Render**
+- Utilizei o render para fazer o deploy da Aplicação Flask e é possível acessar a aplicação por [este link](https://dockerized-prometheus-grafana.onrender.com), a plataforma usada (Render) vai manter a URL ativa por mais 750 horas a partir do envio deste projeto
+- Não foi possível obter URL de deploy para os serviços do Prometheus e Grafana, eles estão hospedados no Railway e foram oferecidas variáveis de ambiente como ```RAILWAY_PRIVATE_DOMAIN, RAILWAY_PROJECT_NAME RAILWAY_ENVIRONMENT_NAME,RAILWAY_SERVICE_NAME,RAILWAY_PROJECT_ID RAILWAY_ENVIRONMENT_ID,RAILWAY_SERVICE_ID``` tentei checar se elas formavam uma URL válida juntas mas não existe tal domínio
+- Sendo assim, [segue o link](https://youtu.be/ilL09HIq-H0?si=4Wk4UgmkDx9xOtlB) de um vídeo de minha autoria demonstrando o funcionamento dos três serviços em conjunto, sendo a API hospedada no Render e o Prometheus/Grafana executados localmente
 
 ## **O que poderia ter sido melhorado/realizado com mais tempo**  
+- Poderia ter sido realizado o deploy dos serviços Prometheus e Grafana
 
 ## **Principais aprendizados**  
 - Compreensão dos objetivos das ferramentas Prometheus e Grafana e como elas se comunicam entre si
