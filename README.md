@@ -25,6 +25,10 @@ docker ps
 ```
 http://<localhost>:5000
 ```
+Para obter as métricas disponibilizadas para o Prometheus:  
+```
+http://<localhost>:5000/metrics
+```
 Para solicitar uma requisição bem sucedida:  
 ```
 http://<localhost>:5000/?success=true
